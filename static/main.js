@@ -8,4 +8,8 @@ function music(id) {
 		document.getElementById("media").pause();
 	}
 }
+
+function sendMsg(){
+	alert("短信功能暂未实现...");
+}
 	
