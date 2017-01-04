@@ -38,7 +38,7 @@ function touchMoveFunc(evt) {
 function touchEndFunc(evt) {
 	var ele;
 	if(endY>1){
-		alert(startY-endY);
+		//alert(startY-endY);
 		try {
 			if((startY-endY)>150){
 				//翻页操作
