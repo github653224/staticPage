@@ -24,7 +24,9 @@ function touchMoveFunc(evt) {
 		var touch = evt.touches[0]; //获取第一个触点   
 		var y = Number(touch.pageY); //页面触点Y坐标  
 
-		//判断滑动方向  
+		//判断滑动方向
+		
+		endY = 0;
 		endY = y;
 	
 	}  
@@ -35,61 +37,63 @@ function touchMoveFunc(evt) {
 //touchend事件  
 function touchEndFunc(evt) {
 	var ele;
-	try {
-		if((startY-endY)>50){
-			//翻页操作
-			ele = document.getElementsByClassName("main-page");
-			var name = ele[0].className;
-			for(var i=0;i<3;i++){
-				if(name.indexOf("z-current")>0){
-					ele[i].className = "main-page";
-					ele[i].style.transform = "scale(1)";
-					if(i==2){
-						name=ele[0].className;
-						ele[0].className="main-page z-current";
-						ele[0].style.transform = "translateY(0px)";
-					}else{
-						name=ele[i+1].className;
-						ele[i+1].className="main-page z-current";
-						ele[i+1].style.transform = "translateY(0px)";
-					}
-				}else
-					if(i==2){
-						name=ele[2].className;
-					}else{
-						name=ele[i+1].className;
-					}
-			}
-		}else{
-			if((endY-startY)>50){
+	if(endY>1){
+		alert(startY-endY);
+		try {
+			if((startY-endY)>150){
 				//翻页操作
 				ele = document.getElementsByClassName("main-page");
-				var name = ele[2].className;
-				for(var i=2;i>=0;i--){
+				var name = ele[0].className;
+				for(var i=0;i<3;i++){
 					if(name.indexOf("z-current")>0){
 						ele[i].className = "main-page";
 						ele[i].style.transform = "scale(1)";
-						if(i==0){
-							name=ele[2].className;
-							ele[2].className="main-page z-current";
-							ele[2].style.transform = "translateY(0px)";
+						if(i==2){
+							name=ele[0].className;
+							ele[0].className="main-page z-current";
+							ele[0].style.transform = "translateY(0px)";
 						}else{
-							name=ele[i-1].className;
-							ele[i-1].className="main-page z-current";
-							ele[i-1].style.transform = "translateY(0px)";
+							name=ele[i+1].className;
+							ele[i+1].className="main-page z-current";
+							ele[i+1].style.transform = "translateY(0px)";
 						}
 					}else
-						if(i==0){
+						if(i==2){
 							name=ele[2].className;
 						}else{
-							name=ele[i-1].className;
+							name=ele[i+1].className;
 						}
 				}
-			}	
+			}else{
+				if((endY-startY)>150){
+					//翻页操作
+					ele = document.getElementsByClassName("main-page");
+					var name = ele[2].className;
+					for(var i=2;i>=0;i--){
+						if(name.indexOf("z-current")>0){
+							ele[i].className = "main-page";
+							ele[i].style.transform = "scale(1)";
+							if(i==0){
+								name=ele[2].className;
+								ele[2].className="main-page z-current";
+								ele[2].style.transform = "translateY(0px)";
+							}else{
+								name=ele[i-1].className;
+								ele[i-1].className="main-page z-current";
+								ele[i-1].style.transform = "translateY(0px)";
+							}
+						}else
+							if(i==0){
+								name=ele[2].className;
+							}else{
+								name=ele[i-1].className;
+							}
+					}
+				}	
+			}
 		}
-		//alert(startY-endY);
-	}
-	catch (e) {
+		catch (e) {
+		}
 	}
 }  
 
