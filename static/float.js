@@ -91,8 +91,12 @@ function touchEndFunc(evt) {
 					}
 				}	
 			}
+			startY=0;
+			endY =0;
 		}
 		catch (e) {
+			startY=0;
+			endY =0;
 		}
 	}
 }  
