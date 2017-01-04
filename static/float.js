@@ -1,8 +1,7 @@
 ﻿//全局变量，触摸开始位置  
 var startY = 0, endY = 0; 
+//window.onload = isTouchDevice();
 
-window.onload = isTouchDevice;
-  
 //touchstart事件  
 function touchSatrtFunc(evt) { 
 	try  
@@ -105,8 +104,8 @@ function bindEvent() {
 function isTouchDevice() {  
 	try {  
 		document.createEvent("TouchEvent");  
-
-		bindEvent(); //绑定事件  
+		bindEvent(); //绑定事件
+		//alert("1");
 	}  
 	catch (e) {  
 		//alert("不支持TouchEvent事件！" + e.message);  
